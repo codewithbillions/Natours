@@ -1,6 +1,6 @@
+/* eslint-disable */
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const console = require('console');
 
 process.on('uncaughtException', err => {
   console.log('UNCAUGHT EXCEPTION! 💥 Shutting down...');
@@ -40,7 +40,8 @@ process.on('unhandledRejection', err => {
 
 process.on('SIGTERM', () => {
   console.log('SIGTERM RECIEVED, shutting down gracefully');
+
   server.close(() => {
-console.log(' Process Terminated!');
+  console.log('Process Terminated!');
   });
 });
